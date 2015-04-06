@@ -1,8 +1,21 @@
 package ir.idevco.domain;
 
 public class Person {
-	
+
 	private String name;
+
+	/**
+	 * 
+	 */
+	public Person() {
+	}
+
+	/**
+	 * @param name
+	 */
+	public Person(String name) {
+		this.name = name;
+	}
 
 	/**
 	 * @return the name

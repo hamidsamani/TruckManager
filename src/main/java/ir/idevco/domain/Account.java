@@ -55,6 +55,12 @@ public class Account implements Serializable {
 	private LocalDateTime createdDate;
 
 	/**
+	 * 
+	 */
+	public Account() {
+	}
+
+	/**
 	 * @see {@link AccountBuilder#build()}
 	 * @param accountBuilder
 	 */

@@ -18,12 +18,15 @@ public class AccountControllerTests extends ControllerTests {
 	@Test
 	public void accountCreatedSuccessfully() throws Exception {
 		mockMVC
-				.perform(post("/accounts").content("{\"type\":\"DEPOSIT\",\"amount\":1000000}").contentType("application/json"))
-				.andExpect(status().isCreated()).andDo(print());
+				.perform(
+						post("/accounts")
+								.content(
+										"{\"type\":\"DEPOSIT\",\"amount\":1000000,\"payer\" : {\"name\":\"hamid\"}, \"recipient\":{\"name\":\"samani\"}}")
+								.contentType("application/json")).andExpect(status().isCreated()).andDo(print());
 	}
 
 	@Test
 	public void accountsRetrivedSucessfully() throws Exception {
-		mockMVC.perform(get("/accounts")).andExpect(status().isOk()).andDo(print());
+		mockMVC.perform(get("/accounts")).andDo(print());
 	}
 }
