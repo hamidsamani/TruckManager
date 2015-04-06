@@ -21,4 +21,17 @@ public class AccountTests {
 		assertThat(Type.WITHDRAW, is(account2.getType()));
 		assertThat(AMOUNT, is(account2.getAmount()));
 	}
+
+	@Test
+	public void payerAndRecipientCreatedSucessfully() {
+		Person p = new Person();
+		Account account = Account.create().payer(p).build();
+
+		assertThat(account.getPayer(), is(p));
+
+		Person p2 = new Person();
+		Account account2 = Account.create().recipient(p2).build();
+
+		assertThat(account2.getRecipient(), is(p2));
+	}
 }

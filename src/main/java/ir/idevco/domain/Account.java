@@ -41,17 +41,18 @@ public class Account implements Serializable {
 	 */
 	private int amount;
 	/**
+	 * The person who is payer the money
+	 */
+	private Person payer;
+	/**
+	 * The person who recipient the money
+	 */
+	private Person recipient;
+	/**
 	 * The DateTime transaction occurred.
 	 */
 	@CreatedDate
 	private LocalDateTime createdDate;
-
-	/**
-	 * Default private constructor.
-	 * 
-	 */
-	private Account() {
-	}
 
 	/**
 	 * @see {@link AccountBuilder#build()}
@@ -60,31 +61,38 @@ public class Account implements Serializable {
 	private Account(AccountBuilder accountBuilder) {
 		this.type = accountBuilder.type;
 		this.amount = accountBuilder.amount;
+		this.payer = accountBuilder.payer;
+		this.recipient = accountBuilder.recipient;
 	}
 
 	/**
-	 * @param id
 	 * @param type
 	 * @param amount
+	 * @param payer
+	 * @param recipient
 	 */
-	public Account(Type type, int amount) {
+	public Account(Type type, int amount, Person payer, Person recipient) {
 		this.type = type;
 		this.amount = amount;
+		this.payer = payer;
+		this.recipient = recipient;
 	}
 
 	/**
-	 * will be called by persistence provider.s
-	 * 
 	 * @param id
 	 * @param type
 	 * @param amount
+	 * @param payer
+	 * @param recipient
 	 * @param createdDate
 	 */
 	@PersistenceConstructor
-	public Account(String id, Type type, int amount, LocalDateTime createdDate) {
+	public Account(String id, Type type, int amount, Person payer, Person recipient, LocalDateTime createdDate) {
 		this.id = id;
 		this.type = type;
 		this.amount = amount;
+		this.payer = payer;
+		this.recipient = recipient;
 		this.createdDate = createdDate;
 	}
 
@@ -148,9 +156,39 @@ public class Account implements Serializable {
 		this.createdDate = createdDate;
 	}
 
+	/**
+	 * @return the payer
+	 */
+	public Person getPayer() {
+		return payer;
+	}
+
+	/**
+	 * @param payer the payer to set
+	 */
+	public void setPayer(Person payer) {
+		this.payer = payer;
+	}
+
+	/**
+	 * @return the recipient
+	 */
+	public Person getRecipient() {
+		return recipient;
+	}
+
+	/**
+	 * @param recipient the recipient to set
+	 */
+	public void setRecipient(Person recipient) {
+		this.recipient = recipient;
+	}
+
 	static class AccountBuilder {
 		private Type type;
 		private int amount;
+		private Person payer;
+		private Person recipient;
 
 		public AccountBuilder type(Type type) {
 			this.type = type;
@@ -165,6 +203,16 @@ public class Account implements Serializable {
 		public Account build() {
 			return new Account(this);
 		}
+
+		public AccountBuilder payer(Person payer) {
+			this.payer = payer;
+			return this;
+		}
+
+		public AccountBuilder recipient(Person recipient) {
+			this.recipient = recipient;
+			return this;
+		}
 	}
 
 	/* (non-Javadoc)
@@ -174,7 +222,8 @@ public class Account implements Serializable {
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Account [id=").append(id).append(", type=").append(type).append(", amount=").append(amount)
-				.append(", createdDate=").append(createdDate).append("]");
+				.append(", payer=").append(payer).append(", recipient=").append(recipient).append(", createdDate=")
+				.append(createdDate).append("]");
 		return builder.toString();
 	}
 
