@@ -2,6 +2,9 @@ package ir.idevco.domain;
 
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.*;
+
+import java.time.LocalDateTime;
+
 import ir.idevco.domain.Account.Type;
 
 import org.junit.Test;
@@ -33,5 +36,13 @@ public class AccountTests {
 		Account account2 = Account.create().recipient(p2).build();
 
 		assertThat(account2.getRecipient(), is(p2));
+	}
+
+	@Test
+	public void paymentDateReturnedSuccessfully() {
+		LocalDateTime now = LocalDateTime.now();
+		Account account = Account.create().date(now).build();
+
+		assertThat(account.getDate(), is(now));
 	}
 }

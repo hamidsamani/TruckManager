@@ -54,6 +54,8 @@ public class Account implements Serializable {
 	@CreatedDate
 	private LocalDateTime createdDate;
 
+	private LocalDateTime date;
+
 	/**
 	 * 
 	 */
@@ -69,6 +71,7 @@ public class Account implements Serializable {
 		this.amount = accountBuilder.amount;
 		this.payer = accountBuilder.payer;
 		this.recipient = accountBuilder.recipient;
+		this.date = accountBuilder.date;
 	}
 
 	/**
@@ -77,11 +80,12 @@ public class Account implements Serializable {
 	 * @param payer
 	 * @param recipient
 	 */
-	public Account(Type type, int amount, Person payer, Person recipient) {
+	public Account(Type type, int amount, LocalDateTime date, Person payer, Person recipient) {
 		this.type = type;
 		this.amount = amount;
 		this.payer = payer;
 		this.recipient = recipient;
+		this.date = date;
 	}
 
 	/**
@@ -93,13 +97,15 @@ public class Account implements Serializable {
 	 * @param createdDate
 	 */
 	@PersistenceConstructor
-	public Account(String id, Type type, int amount, Person payer, Person recipient, LocalDateTime createdDate) {
+	public Account(String id, Type type, int amount, Person payer, Person recipient, LocalDateTime date,
+			LocalDateTime createdDate) {
 		this.id = id;
 		this.type = type;
 		this.amount = amount;
 		this.payer = payer;
 		this.recipient = recipient;
 		this.createdDate = createdDate;
+		this.date = date;
 	}
 
 	public static AccountBuilder create() {
@@ -190,11 +196,26 @@ public class Account implements Serializable {
 		this.recipient = recipient;
 	}
 
+	/**
+	 * @return the date
+	 */
+	public LocalDateTime getDate() {
+		return date;
+	}
+
+	/**
+	 * @param date the date to set
+	 */
+	public void setDate(LocalDateTime date) {
+		this.date = date;
+	}
+
 	static class AccountBuilder {
 		private Type type;
 		private int amount;
 		private Person payer;
 		private Person recipient;
+		private LocalDateTime date;
 
 		public AccountBuilder type(Type type) {
 			this.type = type;
@@ -219,6 +240,11 @@ public class Account implements Serializable {
 			this.recipient = recipient;
 			return this;
 		}
+
+		public AccountBuilder date(LocalDateTime date) {
+			this.date = date;
+			return this;
+		}
 	}
 
 	/* (non-Javadoc)
@@ -229,7 +255,7 @@ public class Account implements Serializable {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Account [id=").append(id).append(", type=").append(type).append(", amount=").append(amount)
 				.append(", payer=").append(payer).append(", recipient=").append(recipient).append(", createdDate=")
-				.append(createdDate).append("]");
+				.append(createdDate).append(", date=").append(date).append("]");
 		return builder.toString();
 	}
 
