@@ -1,8 +1,8 @@
 ﻿/* =============================================================
 GOOGLE FONT
 ============================================================ */
-@import
-	url(http://fonts.googleapis.com/earlyaccess/droidarabicnaskh.css);
+/*@import
+	url(http://fonts.googleapis.com/earlyaccess/droidarabicnaskh.css);*/
 
 /*==============================================================
 OVERRIDING STYLE
@@ -19,6 +19,12 @@ OVERRIDING STYLE
 
 .ui-widget input {
 	font-family: 'Droid Arabic Naskh', sans-serif;
+}
+/*==============================================================
+REPORT TABLE STYLES
+===============================================================*/
+.report {
+	border: 1px solid black;
 }
 /* =============================================================
 GENERAL STYLES
