@@ -1,5 +1,7 @@
 package ir.idevco.domain;
 
+import ir.idevco.infrastructure.converter.JacksonDateSerializer;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
@@ -7,6 +9,8 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 /**
  * <p>
@@ -51,6 +55,7 @@ public class Account implements Serializable {
 	/**
 	 * The DateTime transaction occurred.
 	 */
+	@JsonSerialize(using = JacksonDateSerializer.class)
 	@CreatedDate
 	private LocalDateTime createdDate;
 
