@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+	moment.locale('fa');
 	/*
 	 * ==================================== SCROLLING SCRIPTS
 	 * ======================================
@@ -22,7 +22,7 @@ $(document).ready(function() {
 	 */
 
 	$('#carousel-slider').carousel({
-		interval : 2000
+		interval : 1000
 	// TIME IN MILLI SECONDS
 	});
 
@@ -30,19 +30,19 @@ $(document).ready(function() {
 	 * ==================================== VAGAS SLIDESHOW SCRIPTS
 	 * ======================================
 	 */
-//	 $.vegas('slideshow', {
-//	 backgrounds : [ {
-//	 src : 'assets/img/1.jpg',
-//	 fade : 1000,
-//	 delay : 9000
-//	 }, ]
-//	 })('overlay', {
-//	 /** SLIDESHOW OVERLAY IMAGE * */
-//	 src : 'assets/js/vegas/overlays/06.png' // THERE ARE TOTAL 01 TO 15 .png
-//	 // IMAGES
-//	 // AT THE PATH GIVEN, WHICH YOU CAN USE
-//	 // HERE
-//	 });
+	// $.vegas('slideshow', {
+	// backgrounds : [ {
+	// src : 'assets/img/1.jpg',
+	// fade : 1000,
+	// delay : 9000
+	// }, ]
+	// })('overlay', {
+	// /** SLIDESHOW OVERLAY IMAGE * */
+	// src : 'assets/js/vegas/overlays/06.png' // THERE ARE TOTAL 01 TO 15 .png
+	// // IMAGES
+	// // AT THE PATH GIVEN, WHICH YOU CAN USE
+	// // HERE
+	// });
 	/*
 	 * ==================================== POPUP IMAGE SCRIPTS
 	 * ======================================
@@ -92,16 +92,16 @@ $(document).ready(function() {
 	 * ==================================== WRITE YOUR CUSTOM SCRIPTS BELOW
 	 * ======================================
 	 */
-	$('#payment').dialog({
-		autoOpen : false,
-		resizable : false,
-		draggable : false,
-		modal : true,
-		title : 'ثبت واریزی',
-	});
+//	$('#payment').dialog({
+//		autoOpen : false,
+//		resizable : false,
+//		draggable : false,
+//		modal : true,
+//		title : 'ثبت واریزی',
+//	});
 	$('#account-date').datepicker();
-	$('#pay').click(function() {
-		$('#payment').dialog("open");
-	});
+//	$('#pay').click(function() {
+//		$('#payment').dialog("open");
+//	});
 
 });

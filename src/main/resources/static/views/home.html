@@ -4,9 +4,9 @@
 	<div class="container">
 		<div class="row">
 			<div
-				class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2 ">
+				class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
 				<div id="carousel-slider" data-ride="carousel"
-					class="carousel slide  animate-in" data-anim-type="fade-in-up">
+					class="carousel slide">
 					<p>توسط این نرم‌افزار می‌توانید:</p>
 					<div class="carousel-inner">
 						<div class="item active">
@@ -38,7 +38,7 @@
 
 			</div>
 		</div>
-		<div class="row animate-in" data-anim-type="fade-in-up">
+		<div class="row">
 			<div
 				class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-8 col-lg-offset-2 scroll-me">
 
@@ -47,24 +47,23 @@
 			<section id="accounts">
 				<div class="container">
 					<div class="row text-center header">
-						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 animate-in"
-							data-anim-type="fade-in-up">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 							<h3>مدیریت حساب</h3>
 							<hr />
 						</div>
 					</div>
-					<div class="row animate-in" data-anim-type="fade-in-up">
+					<div class="row">
 						<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
 							<div class="accounts-wrapper">
 								<i class="ion-card"></i>
 								<h3>کارت همراه خودرو</h3>
 								<div class="text-center">
 									<ul class="list-inline">
-										<li><a id="pay" href="#"
+										<li><a id="pay" ui-sref="payment"
 											class="active btn btn-custom btn-custom-two btn-sm">واریز</a></li>
 										<li><a href="#"
 											class="active btn btn-custom btn-custom-two btn-sm">ویرایش</a></li>
-										<li><a href="#"
+										<li><a ui-sref="report"
 											class="active btn btn-custom btn-custom-two btn-sm">گزارش</a></li>
 									</ul>
 								</div>
@@ -140,13 +139,12 @@
 
 			<section id="maintenance">
 				<div class="container">
-					<div class="row text-center header animate-in"
-						data-anim-type="fade-in-up">
+					<div class="row text-center header">
 						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 							<h3>مدیریت خودرو</h3>
 							<hr />
 						</div>
-						<div class="row animate-in" data-anim-type="fade-in-up">
+						<div class="row">
 							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 								<div class="maintenance-wrapper">
 									<i class="ion-speedometer"></i>
@@ -165,8 +163,7 @@
 			</section>
 			<section id="driver">
 				<div class="container">
-					<div class="row text-center header animate-in"
-						data-anim-type="fade-in-up">
+					<div class="row text-center header">
 						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 							<h3>مدیریت راننده</h3>
 							<hr />
@@ -176,8 +173,7 @@
 			</section>
 			<section id="earning">
 				<div class="container">
-					<div class="row text-center header animate-in"
-						data-anim-type="fade-in-up">
+					<div class="row text-center header">
 						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
 							<h3>محاسبات درآمد</h3>
@@ -191,8 +187,7 @@
 			<!--CONTACT SECTION START-->
 			<section id="about">
 				<div class="container">
-					<div class="row text-center header animate-in"
-						data-anim-type="fade-in-up">
+					<div class="row text-center header">
 						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
 							<h3>درباره‌ی ما</h3>
@@ -201,7 +196,7 @@
 						</div>
 					</div>
 
-					<div class="row animate-in" data-anim-type="fade-in-up">
+					<div class="row">
 
 						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"
 							ng-controller="StaticContent">
@@ -214,33 +209,6 @@
 
 			</section>
 			<!--CONTACT SECTION END-->
-			<!-- DIALOGS START -->
-			<div id="payment">
-				<form novalidate ng-submit="submit()"
-					ng-controller="AccountPaymentController">
-					<div class="form-group">
-						<label for="account-ammount">مبلـغ</label> <input type="text"
-							id="account-amount" ng-model="account_amount" />
-					</div>
-					<div class="form-group">
-						<label for="account-date">تاریخ</label> <input type="text"
-							id="account-date" ng-model="account_date" />
-					</div>
-					<div class="form-group">
-						<label for="account-payer">واریز کننده</label> <input type="text"
-							id="account-payer" ng-model="account_payer">
-					</div>
-					<div class="form-group">
-						<label for="account-recepient">گیرنده</label> <input type="text"
-							id="account-recipient" ng-model="account_recipient">
-					</div>
-					<div class="form-group">
-						<input id="account-save" type="submit" value="ثبت"> <input
-							id="account-cancel" type="submit" value="انصراف"
-							ng-click="cancel()">
-					</div>
-				</form>
-			</div>
 		</div>
 	</div>
 </div>
