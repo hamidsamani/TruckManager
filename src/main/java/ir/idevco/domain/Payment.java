@@ -1,5 +1,8 @@
 package ir.idevco.domain;
 
+import ir.idevco.infrastructure.converter.JacksonDateDeserialize;
+import ir.idevco.infrastructure.converter.JacksonDateSerializer;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
@@ -7,6 +10,9 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 /**
  * 
@@ -18,9 +24,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Payment implements Serializable {
 	@Id
 	private String id;
+	@JsonSerialize(using = JacksonDateSerializer.class)
 	@CreatedDate
 	private LocalDateTime createdDate;
-
+	@JsonSerialize(using = JacksonDateSerializer.class)
+	@JsonDeserialize(using = JacksonDateDeserialize.class)
+	private LocalDateTime date;
 	private String title;
 	private String description;
 
@@ -41,6 +50,7 @@ public class Payment implements Serializable {
 		this.payer = paymentBuilder.payer;
 		this.recipient = paymentBuilder.recipient;
 		this.amount = paymentBuilder.amount;
+		this.date = paymentBuilder.date;
 	}
 
 	/**
@@ -56,10 +66,11 @@ public class Payment implements Serializable {
 	}
 
 	@PersistenceConstructor
-	public Payment(String id, LocalDateTime createdDate, String title, String description, Person payer,
-			Person recipient, int amount) {
+	public Payment(String id, LocalDateTime createdDate, LocalDateTime date, String title, String description,
+			Person payer, Person recipient, int amount) {
 		this.id = id;
 		this.createdDate = createdDate;
+		this.date = date;
 		this.title = title;
 		this.description = description;
 		this.payer = payer;
@@ -93,6 +104,20 @@ public class Payment implements Serializable {
 	 */
 	public void setCreatedDate(LocalDateTime createdDate) {
 		this.createdDate = createdDate;
+	}
+
+	/**
+	 * @return the date
+	 */
+	public LocalDateTime getDate() {
+		return date;
+	}
+
+	/**
+	 * @param date the date to set
+	 */
+	public void setDate(LocalDateTime date) {
+		this.date = date;
 	}
 
 	/**
@@ -170,6 +195,7 @@ public class Payment implements Serializable {
 	}
 
 	static class PaymentBuilder {
+		private LocalDateTime date;
 		private String title;
 		private String description;
 
@@ -180,6 +206,11 @@ public class Payment implements Serializable {
 
 		public PaymentBuilder title(String title) {
 			this.title = title;
+			return this;
+		}
+
+		public PaymentBuilder date(LocalDateTime date) {
+			this.date = date;
 			return this;
 		}
 
@@ -215,9 +246,9 @@ public class Payment implements Serializable {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Payment [id=").append(id).append(", createdDate=").append(createdDate).append(", title=")
-				.append(title).append(", description=").append(description).append(", payer=").append(payer)
-				.append(", recipient=").append(recipient).append(", amount=").append(amount).append("]");
+		builder.append("Payment [id=").append(id).append(", createdDate=").append(createdDate).append(", date=")
+				.append(date).append(", title=").append(title).append(", description=").append(description).append(", payer=")
+				.append(payer).append(", recipient=").append(recipient).append(", amount=").append(amount).append("]");
 		return builder.toString();
 	}
 

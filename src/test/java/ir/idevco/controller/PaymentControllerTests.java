@@ -1,8 +1,12 @@
 package ir.idevco.controller;
 
+import static org.springframework.http.MediaType.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -20,7 +24,13 @@ public class PaymentControllerTests extends ControllerTests {
 		mockMVC
 				.perform(
 						post("/payments").content("{\"title\": \"this is title\", \"description\":\"this is description\"}")
-								.contentType("application/json")).andDo(print()).andExpect(status().isCreated());
+								.contentType(APPLICATION_JSON)).andDo(print()).andExpect(status().isCreated());
+	}
+
+	@Test
+	public void deserializationDateWorksAsExpected() throws Exception {
+		mockMVC.perform(post("/payments").content("{\"date\":\"04/21/2015\"}").contentType(APPLICATION_JSON))
+				.andDo(print()).andExpect(status().isCreated());
 	}
 
 	@Test
