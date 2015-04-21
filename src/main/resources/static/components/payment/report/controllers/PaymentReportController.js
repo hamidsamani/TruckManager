@@ -26,7 +26,18 @@
 
 		vm.dtColumns = [
 				DTColumnBuilder.newColumn('id').withTitle('شناسه'),
-				DTColumnBuilder.newColumn('createdDate').withTitle('تاریخ')
+				DTColumnBuilder.newColumn('createdDate').withTitle('تاریخ ثبت')
+						.renderWith(
+								function(data, type, row) {
+
+									if (data !== null) {
+										return moment(data,
+												'YYYY/MM/DD HH:mm:ss').format(
+												'jYYYY/jMM/jDD HH:mm:ss');
+									}
+									return data;
+								}),
+				DTColumnBuilder.newColumn('date').withTitle('تاریخ واریزی')
 						.renderWith(
 								function(data, type, row) {
 

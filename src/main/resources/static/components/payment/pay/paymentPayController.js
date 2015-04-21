@@ -5,9 +5,11 @@
 
 	function PaymentPayController(Payments, $state, $scope) {
 		$scope.submit = function(isValid) {
-			alert(JSON.stringify($scope.payment));
 			if (isValid) {
 				Payments.save($scope.payment);
+				$scope.payment = {};
+			} else {
+				$scope.submitted = true;
 			}
 		}
 		$scope.cancel = function() {
