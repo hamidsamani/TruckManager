@@ -1,4 +1,4 @@
 (function() {
 	'use strict';
-	angular.module('account', [ 'ui.router', 'datatables' ]);
+	angular.module('app.account', [ 'datatables' ]);
 })();

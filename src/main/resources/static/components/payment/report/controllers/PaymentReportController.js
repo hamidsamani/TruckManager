@@ -1,10 +1,11 @@
 (function() {
 	'use strict';
-	angular.module('app.account').controller('ReportController', ReportController);
+	angular.module('app.payment').controller('PaymentReportController',
+			PaymentReportController);
 
-	function ReportController(DTOptionsBuilder, DTColumnBuilder) {
+	function PaymentReportController(DTOptionsBuilder, DTColumnBuilder) {
 		var vm = this;
-		vm.dtOptions = DTOptionsBuilder.fromSource('/accounts').withLanguage({
+		vm.dtOptions = DTOptionsBuilder.fromSource('/payments').withLanguage({
 			"sProcessing" : "درحال پردازش...",
 			"sLengthMenu" : "نمایش محتویات _MENU_",
 			"sZeroRecords" : "موردی یافت نشد",
@@ -22,31 +23,26 @@
 			}
 
 		}).withDisplayLength(25);
+
 		vm.dtColumns = [
 				DTColumnBuilder.newColumn('id').withTitle('شناسه'),
-				DTColumnBuilder.newColumn('type').withTitle('نوع').renderWith(
-						function(data, type, row) {
-							if (data === 'DEPOSIT')
-								return 'واریزی';
-							if (data === 'WITHDRAW')
-								return 'برداشت';
-							return data;
-
-						}),
-				DTColumnBuilder.newColumn('amount').withTitle('مبلغ'),
-				DTColumnBuilder.newColumn('payer.name')
-						.withTitle('واریز کننده'),
 				DTColumnBuilder.newColumn('createdDate').withTitle('تاریخ')
 						.renderWith(
 								function(data, type, row) {
-									// 
+
 									if (data !== null) {
 										return moment(data,
 												'YYYY/MM/DD HH:mm:ss').format(
 												'jYYYY/jMM/jDD HH:mm:ss');
 									}
 									return data;
-								}) ];
+								}),
+				DTColumnBuilder.newColumn('amount').withTitle('مبلغ'),
+				DTColumnBuilder.newColumn('title').withTitle('عنوان'),
+				DTColumnBuilder.newColumn('payer.name').withTitle(
+						'پرداخت کننده'),
+				DTColumnBuilder.newColumn('recipient.name').withTitle('گیرنده'),
+				DTColumnBuilder.newColumn('description').withTitle('ملاحضات') ];
 
 	}
 

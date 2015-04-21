@@ -1,6 +1,6 @@
 (function() {
 	'use strict';
-	angular.module('account').controller(
+	angular.module('app.account').controller(
 			'PaymentController',
 			function($scope, $state, PaymentService) {
 				$scope.cancel = function(data) {

@@ -1,0 +1,45 @@
+<div id="home">
+	<div class="container">
+		<div class="row">
+			<section id="report">
+				<div class="row header">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<h3>ثبت واریزی خودرو</h3>
+						<hr />
+					</div>
+				</div>
+				<div class="row form-row">
+					<form name="paymentForm" class="form-horizontal" novalidate ng-controller="PaymentPayController"
+						ng-submit="submit(paymentForm.$valid)">
+						<div class="form-group">
+							<label>تاریخ</label> <input type="text" ui-date class="form-control" ng-model="payment.createdDate" />
+						</div>
+						<div class="form-group">
+							<label>عنوان</label> <input type="text" class="form-control" ng-model="payment.title" required />
+						</div>
+						<div class="form-group">
+							<label>مبلغ</label> <input type="text" class="form-control" ng-model="payment.amount" required />
+						</div>
+						<div class="form-group">
+							<label>پرداخت کننده</label> <select class="form-control" ng-model="payment.payer.name">
+								<option ng-repeat="name in ['سامانی']" value="{{name}}">{{name}}</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label>گیرنده</label> <input class="form-control" type="text" ng-model="payment.recipient.name" required />
+						</div>
+						<div class="form-group">
+							<label>توضیحات</label>
+							<textarea class="form-control" ng-model="payment.description" />
+
+						</div>
+						<div class="form-group">
+							<input type="submit" class="btn btn-primary" value="ثبت" /> <input class="btn" value="انصراف"
+								ng-click="cancel()" />
+						</div>
+					</form>
+				</div>
+			</section>
+		</div>
+	</div>
+</div>
