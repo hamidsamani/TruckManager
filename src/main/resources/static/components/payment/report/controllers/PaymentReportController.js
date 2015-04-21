@@ -25,7 +25,7 @@
 		}).withDisplayLength(25);
 
 		vm.dtColumns = [
-				DTColumnBuilder.newColumn('id').withTitle('شناسه'),
+				DTColumnBuilder.newColumn('id').withTitle('شناسه').notVisible(),
 				DTColumnBuilder.newColumn('createdDate').withTitle('تاریخ ثبت')
 						.renderWith(
 								function(data, type, row) {
@@ -33,7 +33,7 @@
 									if (data !== null) {
 										return moment(data,
 												'YYYY/MM/DD HH:mm:ss').format(
-												'jYYYY/jMM/jDD HH:mm:ss');
+												'jYYYY/jMM/jDD');
 									}
 									return data;
 								}),
@@ -44,16 +44,18 @@
 									if (data !== null) {
 										return moment(data,
 												'YYYY/MM/DD HH:mm:ss').format(
-												'jYYYY/jMM/jDD HH:mm:ss');
+												'jYYYY/jMM/jDD');
 									}
 									return data;
 								}),
 				DTColumnBuilder.newColumn('amount').withTitle('مبلغ'),
-				DTColumnBuilder.newColumn('title').withTitle('عنوان'),
+				DTColumnBuilder.newColumn('title').withTitle('عنوان').notSortable(),
 				DTColumnBuilder.newColumn('payer.name').withTitle(
-						'پرداخت کننده'),
-				DTColumnBuilder.newColumn('recipient.name').withTitle('گیرنده'),
-				DTColumnBuilder.newColumn('description').withTitle('ملاحضات') ];
+						'پرداخت کننده').notSortable(),
+				DTColumnBuilder.newColumn('recipient.name').withTitle('گیرنده')
+						.notSortable(),
+				DTColumnBuilder.newColumn('description').withTitle('ملاحضات')
+						.notSortable() ];
 
 	}
 
