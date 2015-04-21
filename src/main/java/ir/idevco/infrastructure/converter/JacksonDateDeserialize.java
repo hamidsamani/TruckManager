@@ -1,7 +1,6 @@
 package ir.idevco.infrastructure.converter;
 
 import java.io.IOException;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -17,7 +16,7 @@ public class JacksonDateDeserialize extends JsonDeserializer<LocalDateTime> {
 			JsonProcessingException {
 
 		String dateAsString = jp.getCodec().readTree(jp).toString();
-		return LocalDate.parse(dateAsString, DateTimeFormatter.ofPattern("\"MM/dd/uuuu\"")).atStartOfDay();
+		return LocalDateTime.parse(dateAsString.substring(1, dateAsString.length() - 1), DateTimeFormatter.ISO_DATE_TIME);
 	}
 
 }

@@ -5,9 +5,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
@@ -29,7 +26,7 @@ public class PaymentControllerTests extends ControllerTests {
 
 	@Test
 	public void deserializationDateWorksAsExpected() throws Exception {
-		mockMVC.perform(post("/payments").content("{\"date\":\"04/21/2015\"}").contentType(APPLICATION_JSON))
+		mockMVC.perform(post("/payments").content("{\"date\":\"2015-04-19T19:30:00.000Z\"}").contentType(APPLICATION_JSON))
 				.andDo(print()).andExpect(status().isCreated());
 	}
 
