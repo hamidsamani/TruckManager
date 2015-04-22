@@ -1,5 +1,5 @@
 #!/bin/bash
-export JAVA_HOME="$OPENSHIFT_DATA_DIR/jdk/jdk1.8.0_05"
-export PATH=$JDK8_PATH:$PATH
+export PATH=$OPENSHIFT_DATA_DIR/jdk1.8.0_60/bin:$PATH
+export JAVA_HOME="$OPENSHIFT_DATA_DIR/jdk/jdk1.8.0_60"
 cd $OPENSHIFT_REPO_DIR
 mvn package -s .openshift/settings.xml -DskipTests=true
