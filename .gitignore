@@ -11,7 +11,6 @@
 .metadata
 .factorypath
 bin
-build
 lib/
 target
 .springBeans
