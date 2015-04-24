@@ -51,6 +51,7 @@ input {
 }
 
 .form-row {
+	width: 40%;
 	padding: 20px;
 	border-radius: 5px;
 	-moz-border-radius: 5px;
@@ -62,8 +63,7 @@ input {
 	-o-transition: all 0.5s ease-in-out;
 	transition: all 0.5s ease-in-out;
 	margin: 0 auto;
-	width: 40%;
-	margin: 0 auto;
+	padding: 20px;
 }
 
 .pad-bottom {
@@ -206,7 +206,7 @@ HOME SECTION STYLES
 
 /*Carousel Slider*/
 #carousel-slider {
-	border-radius : 8px;
+	border-radius: 8px;
 	border: 2px solid black;
 	padding: 50px 20px 5px 50px;
 	background-color: rgba(0, 0, 0, 0.2);

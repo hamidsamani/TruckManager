@@ -23,6 +23,13 @@
 											url : '/payments/report',
 											templateUrl : 'components/payment/report/views/report.html'
 										})
+
+								.state(
+										'selectReport',
+										{
+											url : '/payments/select-report',
+											templateUrl : 'components/payment/report/views/select-report.html'
+										})
 								.state(
 										'report',
 										{

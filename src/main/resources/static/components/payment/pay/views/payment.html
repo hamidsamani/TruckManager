@@ -12,7 +12,7 @@
 					<form name="paymentForm" class="form-horizontal" novalidate ng-controller="PaymentPayController"
 						ng-submit="submit(paymentForm.$valid)">
 						<div class="form-group">
-							<label>تاریخ</label> <input type="text" ui-date class="form-control" name="date" ng-model="payment.date" required />
+							<label>تاریخ</label> <input type="text" ui-j-date class="form-control" name="date" ng-model="payment.date" required />
 							<span class="bg-danger text-warning" ng-show="submitted && paymentForm.date.$error.required"> فیلد تاریخ
 								اجباری است </span>
 						</div>
