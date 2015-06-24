@@ -41,6 +41,12 @@
 										{
 											url : '/payment',
 											templateUrl : 'components/account/payment/views/account-payment.html'
+										})
+								.state(
+										'invoice',
+										{
+											url : '/invoice',
+											templateUrl : 'components/invoice/views/invoice.html'
 										});
 					});
 })();
