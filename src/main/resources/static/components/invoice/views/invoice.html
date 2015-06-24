@@ -1,0 +1,72 @@
+<div id="home">
+	<div class="container">
+		<div class="row">
+			<div id="panel panel-default">
+				<div class="panel-header">
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<h3>ثبت فاکتور</h3>
+							<hr />
+						</div>
+					</div>
+				</div>
+				<div class="panel-body" ng-controller="InvoiceController">
+					<div class="row">
+						<div class="col-md-2">
+							<a class="active btn btn-danger btn-danger-two btn-sm" ui-sref="home">انصراف</a>
+							<a class="active btn btn-custom btn-custom-two btn-sm" ng-click="submit()">ثبت</a>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<input type="text" placeholder="تاریخ" ng-model="date" />
+						</div>
+						<div class="col-md-6">
+							<input type="text" placeholder="کارکرد کیلومتر" ng-model="milage" />
+						</div>
+					</div>
+					<div class="row">
+						<form class="form-inline">
+							<div class="form-group">
+								<input type="text" placeholder="عنوان" ng-model="item.title">
+							</div>
+							<div class="form-group">
+								<input type="text" placeholder="تعداد" ng-model="item.quantity">
+							</div>
+							<div class="form-group">
+								<input type="text" placeholder="قیمت" ng-model="item.price">
+							</div>
+							<div class="form-group">
+								<a class="active btn btn-custom btn-custom-two btn-sm" ng-click="addItem()">+</a>
+							</div>
+							<div class="row">
+								<table class="table">
+									<thead>
+										<tr>
+											<th>ردیف</th>
+											<th>عنوان</th>
+											<th>تعداد</th>
+											<th>قیمت</th>
+											<th>جمع کل</th>
+											<th>حذف</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr ng-repeat="it in items">
+											<td class="col-md-1">{{$index +1}}</td>
+											<td>{{it.title}}</td>
+											<td class="col-md-1">{{it.quantity}}</td>
+											<td class="col-md-2">{{it.price}}</td>
+											<td class="col-md-2">{{it.quantity * it.price}}</td>
+											<td class="col-md-1"><a ng-click="removeItem(it)"><i class="ion-close-round"></a></i></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

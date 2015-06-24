@@ -63,7 +63,21 @@
 									<ul class="list-inline">
 										<li><a ui-sref="payment" class="active btn btn-custom btn-custom-two btn-sm">واریز</a></li>
 										<li><a href="#" class="active btn btn-custom btn-custom-two btn-sm">ویرایش</a></li>
-										<li><a ui-sref="payment-report" class="active btn btn-custom btn-custom-two btn-sm">گزارش</a></li>
+										<li>
+											<div class="dropdown">
+												<button id="select-report" class="btn btn-default btn-custom-two dropdown-toggle btn-sm" type="button"
+													data-toggle="dropdown">
+													گزارش <span class="caret"></span>
+												</button>
+												<ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="select-report">
+													<li role="presenattion"><a class="text-right" role="menu-item" ui-sref="payment-report">گزارش کلی</a></li>
+													<li role="presentation" class="divider"></li>
+													<li role="presentation"><a class="text-right" role="menu-item">ابتدای ماه جاری تاکنون</a></li>
+													<li role="presentation"><a class="text-right" role="menu-item">ابتدای سال جاری تاکنون</a></li>
+													<li role="presentation"><a class="text-right" role="menu-item"> بازه زمانی مشخص</a></li>
+												</ul>
+											</div>
+										</li>
 									</ul>
 								</div>
 							</div>
@@ -96,11 +110,11 @@
 						</div>
 						<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 							<div class="accounts-wrapper">
-								<i class="ion-gear-b"></i>
+								<i class="ion-clipboard"></i>
 								<h3>هزینه‌های مربوط به سرویس‌ها</h3>
 								<div class="text-center">
 									<ul class="list-inline">
-										<li><a href="#" class="active btn btn-custom btn-custom-two btn-sm">واریز</a></li>
+										<li><a ui-sref="invoice"  class="active btn btn-custom btn-custom-two btn-sm">ثبت</a></li>
 										<li><a href="#" class="active btn btn-custom btn-custom-two btn-sm">ویرایش</a></li>
 										<li><a href="#" class="active btn btn-custom btn-custom-two btn-sm">گزارش</a></li>
 									</ul>

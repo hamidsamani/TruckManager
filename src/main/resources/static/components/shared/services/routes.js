@@ -23,6 +23,13 @@
 											url : '/payments/report',
 											templateUrl : 'components/payment/report/views/report.html'
 										})
+
+								.state(
+										'selectReport',
+										{
+											url : '/payments/select-report',
+											templateUrl : 'components/payment/report/views/select-report.html'
+										})
 								.state(
 										'report',
 										{
@@ -34,6 +41,12 @@
 										{
 											url : '/payment',
 											templateUrl : 'components/account/payment/views/account-payment.html'
+										})
+								.state(
+										'invoice',
+										{
+											url : '/invoice',
+											templateUrl : 'components/invoice/views/invoice.html'
 										});
 					});
 })();

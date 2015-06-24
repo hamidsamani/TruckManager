@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	moment.locale('fa');
+	moment.locale('en');
 	/*
 	 * ==================================== SCROLLING SCRIPTS
 	 * ======================================
@@ -87,21 +87,5 @@ $(document).ready(function() {
 		});
 
 	});
-
-	/*
-	 * ==================================== WRITE YOUR CUSTOM SCRIPTS BELOW
-	 * ======================================
-	 */
-//	$('#payment').dialog({
-//		autoOpen : false,
-//		resizable : false,
-//		draggable : false,
-//		modal : true,
-//		title : 'ثبت واریزی',
-//	});
-	$('#account-date').datepicker();
-//	$('#pay').click(function() {
-//		$('#payment').dialog("open");
-//	});
 
 });
