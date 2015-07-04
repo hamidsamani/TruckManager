@@ -43,10 +43,16 @@
 											templateUrl : 'components/account/payment/views/account-payment.html'
 										})
 								.state(
-										'invoice',
+										'invoice-register',
 										{
-											url : '/invoice',
+											url : '/invoice/register',
 											templateUrl : 'components/invoice/views/invoice.html'
+										})
+								.state(
+										'invoice-report-search',
+										{
+											url : '/invoice/report/search',
+											templateUrl : 'components/invoice/views/invoice-report-search.html'
 										});
 					});
 })();

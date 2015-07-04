@@ -46,7 +46,7 @@
 					<li><a href="#driver">مدیریت راننده</a></li>
 					<li><a href="#maintenance">مدیریت خودرو</a></li>
 					<li><a href="#accounts">مدیریت حساب</a></li>
-					<li><a ui-sref="home">خانه</a></li>
+					<li><a ui-sref="home" class="btn btn-primary btn-primary-default">خانه</a></li>
 				</ul>
 			</div>
 
@@ -82,6 +82,7 @@
 
 	<script src="components/shared/shared.js"></script>
 	<script src="components/shared/services/routes.js"></script>
+	<script src="components/shared/services/CurrentUserController.js"></script>
 	<script src="components/shared/services/constants.js"></script>
 	<script src="components/account/account.js"></script>
 	<script src="components/account/report/controllers/reportController.js"></script>
@@ -94,9 +95,10 @@
 	<script src="components/payment/pay/ui-j-dateDirective.js"></script>
 	<script src="components/payment/report/controllers/PaymentReportController.js"></script>
 	<script src="components/payment/report/controllers/PaymentReportDateController.js"></script>
-	
+
 	<script src="components/invoice/invoice.js"></script>
-	<script src="components/invoice/controllers/invoiceController.js"></script>
+	<script src="components/invoice/controllers/InvoiceSubmitController.js"></script>
+	<script src="components/invoice/controllers/InvoiceReportController.js"></script>
 	<script src="assets/js/custom.js"></script>
 </body>
 
