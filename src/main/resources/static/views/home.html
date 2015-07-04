@@ -2,6 +2,9 @@
 <!--HOME SECTION START-->
 <div id="home">
 	<div class="container">
+		<div class="row text-right" ng-controller="CurrentUserController">
+			<p>وارد شده با نام کاربری {{username.username}} </p>
+		</div>
 		<div class="row">
 			<div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
 				<div id="carousel-slider" data-ride="carousel" class="carousel slide" jq-carousel>
@@ -114,9 +117,9 @@
 								<h3>هزینه‌های مربوط به سرویس‌ها</h3>
 								<div class="text-center">
 									<ul class="list-inline">
-										<li><a ui-sref="invoice"  class="active btn btn-custom btn-custom-two btn-sm">ثبت</a></li>
+										<li><a ui-sref="invoice-register" class="active btn btn-custom btn-custom-two btn-sm">ثبت</a></li>
 										<li><a href="#" class="active btn btn-custom btn-custom-two btn-sm">ویرایش</a></li>
-										<li><a href="#" class="active btn btn-custom btn-custom-two btn-sm">گزارش</a></li>
+										<li><a ui-sref="invoice-report-search" class="active btn btn-custom btn-custom-two btn-sm">گزارش</a></li>
 									</ul>
 								</div>
 							</div>
