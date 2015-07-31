@@ -1,25 +1,53 @@
 ﻿<!DOCTYPE html>
-<html dir="rtl" ng-app="app">
+<html
+	dir="rtl"
+	ng-app="app">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-<meta name="description" content="" />
-<meta name="author" content="" />
+<meta
+	name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1" />
+<meta
+	name="description"
+	content="" />
+<meta
+	name="author"
+	content="" />
 <!--[if IE]>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <![endif]-->
 <title>سیستم جامع مدیریت خودرو</title>
-<!-- BOOTSTRAP CORE CSS -->
-<link href="webjars/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" />
-<link href="webjars/jquery-ui-themes/1.11.4/ui-darkness/jquery-ui.min.css" rel="stylesheet">
-<link href="assets/css/ionicons.css" rel="stylesheet" />
-<link href="assets/css/font-awesome.css" rel="stylesheet" />
-<link href="assets/js/source/jquery.fancybox.css" rel="stylesheet" />
-<link href="assets/css/animations.min.css" rel="stylesheet" />
-<link href="assets/css/style-blue.css" rel="stylesheet" />
-<link href="assets/css/jquery.growl.css" rel="stylesheet" />
-<link href="bower_components/datatables/media/css/jquery.dataTables.min.css" rel="stylesheet" />
-<link href="assets/css/persianDatepicker-default.css" rel="stylesheet" />
+<link
+	href="webjars/bootstrap/3.3.4/css/bootstrap.min.css"
+	rel="stylesheet" />
+<link
+	href="webjars/jquery-ui-themes/1.11.4/ui-darkness/jquery-ui.min.css"
+	rel="stylesheet">
+<link
+	href="assets/css/ionicons.css"
+	rel="stylesheet" />
+<link
+	href="assets/css/font-awesome.css"
+	rel="stylesheet" />
+<link
+	href="assets/js/source/jquery.fancybox.css"
+	rel="stylesheet" />
+<link
+	href="assets/css/animations.min.css"
+	rel="stylesheet" />
+<link
+	href="assets/css/style-blue.css"
+	rel="stylesheet" />
+<link
+	href="assets/css/jquery.growl.css"
+	rel="stylesheet" />
+<!-- <link href="bower_components/datatables/media/css/jquery.dataTables.min.css" rel="stylesheet" /> -->
+<link
+	href="assets/css/datatables-custom.css"
+	rel="stylesheet" />
+<link
+	href="assets/css/persianDatepicker-default.css"
+	rel="stylesheet" />
 <!-- HTML5 Shiv and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
@@ -29,15 +57,28 @@
 
 
 </head>
-<body data-spy="scroll" data-target="#menu-section">
-	<!--MENU SECTION START-->
-	<div class="navbar navbar-inverse navbar-fixed-top scroll-me" id="menu-section">
+<body>
+	<div
+		class="navbar navbar-inverse navbar-fixed-top"
+		id="menu-section">
 		<div class="container">
 			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<button
+					type="button"
+					class="navbar-toggle"
+					data-toggle="collapse"
+					data-target=".navbar-collapse">
 					<span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#"> سیستم جامع مدیریت خودرو </a>
+				<a
+					class="navbar-brand"
+					href="http://idevco.ir"
+					target="_blank"> سیستم جامع مدیریت خودرو </a>
+				<p>مدیریت خودرو بشماره</p>
+				<div>
+					<span class="bg-yellow">۴۴</span> <span class="bg-yellow">۴۶۴</span> <span class="bg-yellow">ع</span> <span class="bg-yellow">۴۳</span>
+				</div>
+				<p>44 464 ع 43</p>
 			</div>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
@@ -46,7 +87,10 @@
 					<li><a href="#driver">مدیریت راننده</a></li>
 					<li><a href="#maintenance">مدیریت خودرو</a></li>
 					<li><a href="#accounts">مدیریت حساب</a></li>
-					<li><a ui-sref="home" class="btn btn-primary btn-primary-default">خانه</a></li>
+					<li><a>مدیریت اقساط</a>
+					<li><a
+						ui-sref="home"
+						class="btn btn-primary btn-primary-default">خانه</a></li>
 				</ul>
 			</div>
 
@@ -84,6 +128,9 @@
 	<script src="components/shared/services/routes.js"></script>
 	<script src="components/shared/services/CurrentUserController.js"></script>
 	<script src="components/shared/services/constants.js"></script>
+	<script src="components/shared/services/GrowlService.js"></script>
+	<script src="components/shared/filters/ShDateFilter.js"></script>
+
 	<script src="components/account/account.js"></script>
 	<script src="components/account/report/controllers/reportController.js"></script>
 	<script src="components/account/payment/controllers/paymentController.js"></script>
@@ -99,6 +146,7 @@
 	<script src="components/invoice/invoice.js"></script>
 	<script src="components/invoice/controllers/InvoiceSubmitController.js"></script>
 	<script src="components/invoice/controllers/InvoiceReportController.js"></script>
+	<script src="components/invoice/controllers/InvoiceDetailsController.js"></script>
 	<script src="assets/js/custom.js"></script>
 </body>
 

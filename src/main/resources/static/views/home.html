@@ -2,82 +2,90 @@
 <!--HOME SECTION START-->
 <div id="home">
 	<div class="container">
-		<div class="row text-right" ng-controller="CurrentUserController">
-			<p>وارد شده با نام کاربری {{username.username}} </p>
-		</div>
-		<div class="row">
-			<div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
-				<div id="carousel-slider" data-ride="carousel" class="carousel slide" jq-carousel>
-					<div class="carousel-inner">
-						<div class="item active">
-							<h3>سیستم جامع مدیریت خودرو سنگین و نیمه سنگین</h3>
-							<p>با وارد کردن مبالغ ورودی و خروجی گزارشات مختلفی از عملکرد خودرو خود داشته باشید</p>
+
+		<div class="col-sm-12 col-md-12 col-lg-12">
+			<div class="row">
+				<div class="col-sm-12 col-md-12 col-lg-12">
+					<div
+						id="carousel-slider"
+						data-ride="carousel"
+						class="carousel slide"
+						jq-carousel>
+						<div class="carousel-inner">
+							<div class="item active">
+								<h3>سیستم جامع مدیریت خودرو سنگین و نیمه سنگین</h3>
+								<p>با وارد کردن مبالغ ورودی و خروجی گزارشات مختلفی از عملکرد خودرو خود داشته باشید</p>
+							</div>
+							<div class="item">
+								<h3>کنترل حساب بانکی مرتبط با خودرو</h3>
+								<p>مبالغی که به هر طریقی جهت خودرو خرج می‌کنید را به راحتی مدیریت کنید</p>
+							</div>
+							<div class="item">
+								<h3>کنترل هزینه‌های راننده</h3>
+								<p>هزینه‌هایی که بابت حقوق راننده می‌پردازید را تحت کنترل خود داشته باشید.</p>
+							</div>
+							<div class="item">
+								<h3>کنترل سرویس‌های دوره‌ای خودرو</h3>
+								<p>با وارد کردن سرویس‌های دوره‌ای خودرو از سلامت خودرو خود اطمینان حاصل کنید</p>
+							</div>
 						</div>
-						<div class="item">
-							<h3>کنترل حساب بانکی مرتبط با خودرو</h3>
-							<p>مبالغی که به هر طریقی جهت خودرو خرج می‌کنید را به راحتی مدیریت کنید</p>
-						</div>
-						<div class="item">
-							<h3>کنترل هزینه‌های راننده</h3>
-							<p>هزینه‌هایی که بابت حقوق راننده می‌پردازید را تحت کنترل خود داشته باشید.</p>
-						</div>
-						<div class="item">
-							<h3>کنترل سرویس‌های دوره‌ای خودرو</h3>
-							<p>با وارد کردن سرویس‌های دوره‌ای خودرو از سلامت خودرو خود اطمینان حاصل کنید</p>
-						</div>
+
+
 					</div>
 
 
 				</div>
-
-
 			</div>
-		</div>
-		<div class="row">
-			<div class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-8 col-lg-offset-2 scroll-me"></div>
-
-			<section id="accounts">
-				<div class="container">
+			<div class="row">
+				<section id="accounts">
 					<div class="row text-center header">
 						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-							<h3>مدیریت حساب</h3>
+							<h3>مدیریت هزینه‌های خودرو</h3>
 							<hr />
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-							<div class="accounts-wrapper">
-								<i class="ion-card"></i>
-								<h3>کارت همراه خودرو</h3>
-								<div class="text-center">
-									<ul class="list-inline">
-										<li><a id="pay" ui-sref="pay" class="active btn btn-custom btn-custom-two btn-sm">واریز</a></li>
-										<li><a href="#" class="active btn btn-custom btn-custom-two btn-sm">ویرایش</a></li>
-										<li><a ui-sref="report" class="active btn btn-custom btn-custom-two btn-sm">گزارش</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+						<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 							<div class="accounts-wrapper">
 								<i class="ion-cash"></i>
-								<h3>هزینه‌های جانبی غیر از کارت</h3>
+								<h3>مدیریت پرداخت‌ها</h3>
 								<div class="text-center">
 									<ul class="list-inline">
-										<li><a ui-sref="payment" class="active btn btn-custom btn-custom-two btn-sm">واریز</a></li>
-										<li><a href="#" class="active btn btn-custom btn-custom-two btn-sm">ویرایش</a></li>
+										<li><a
+											ui-sref="payment"
+											class="active btn btn-custom btn-custom-two btn-sm">ثبت واریزی</a></li>
+										<li><a
+											href="#"
+											class="active btn btn-custom btn-custom-two btn-sm">ویرایش واریزی</a></li>
 										<li>
 											<div class="dropdown">
-												<button id="select-report" class="btn btn-default btn-custom-two dropdown-toggle btn-sm" type="button"
+												<button
+													id="select-report"
+													class="btn btn-default btn-custom-two dropdown-toggle btn-sm"
+													type="button"
 													data-toggle="dropdown">
-													گزارش <span class="caret"></span>
+													گزارشات واریزی<span class="caret"></span>
 												</button>
-												<ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="select-report">
-													<li role="presenattion"><a class="text-right" role="menu-item" ui-sref="payment-report">گزارش کلی</a></li>
-													<li role="presentation" class="divider"></li>
-													<li role="presentation"><a class="text-right" role="menu-item">ابتدای ماه جاری تاکنون</a></li>
-													<li role="presentation"><a class="text-right" role="menu-item">ابتدای سال جاری تاکنون</a></li>
-													<li role="presentation"><a class="text-right" role="menu-item"> بازه زمانی مشخص</a></li>
+												<ul
+													class="dropdown-menu dropdown-menu-right"
+													role="menu"
+													aria-labelledby="select-report">
+													<li role="presenattion"><a
+														class="text-right"
+														role="menu-item"
+														ui-sref="payment-report">گزارش کلی</a></li>
+													<li
+														role="presentation"
+														class="divider"></li>
+													<li role="presentation"><a
+														class="text-right"
+														role="menu-item">ابتدای ماه جاری تاکنون</a></li>
+													<li role="presentation"><a
+														class="text-right"
+														role="menu-item">ابتدای سال جاری تاکنون</a></li>
+													<li role="presentation"><a
+														class="text-right"
+														role="menu-item"> بازه زمانی مشخص</a></li>
 												</ul>
 											</div>
 										</li>
@@ -85,120 +93,117 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-							<div class="accounts-wrapper">
-								<i class="ion-model-s"></i>
-								<h3>هزینه‌های اصلی خودرو</h3>
-								<div class="text-center">
-									<ul class="list-inline">
-										<li><a href="#" class="active btn btn-custom btn-custom-two btn-sm">واریز</a></li>
-										<li><a href="#" class="active btn btn-custom btn-custom-two btn-sm">ویرایش</a></li>
-										<li><a href="#" class="active btn btn-custom btn-custom-two btn-sm">گزارش</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-							<div class="accounts-wrapper">
-								<i class="ion-document"></i>
-								<h3>هزینه‌های مربوط به بارنامه‌ها</h3>
-								<div class="text-center">
-									<ul class="list-inline">
-										<li><a href="#" class="active btn btn-custom btn-custom-two btn-sm">واریز</a></li>
-										<li><a href="#" class="active btn btn-custom btn-custom-two btn-sm">ویرایش</a></li>
-										<li><a href="#" class="active btn btn-custom btn-custom-two btn-sm">گزارش</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
 						<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 							<div class="accounts-wrapper">
 								<i class="ion-clipboard"></i>
-								<h3>هزینه‌های مربوط به سرویس‌ها</h3>
+								<h3>مدیریت فاکتور</h3>
 								<div class="text-center">
 									<ul class="list-inline">
-										<li><a ui-sref="invoice-register" class="active btn btn-custom btn-custom-two btn-sm">ثبت</a></li>
-										<li><a href="#" class="active btn btn-custom btn-custom-two btn-sm">ویرایش</a></li>
-										<li><a ui-sref="invoice-report-search" class="active btn btn-custom btn-custom-two btn-sm">گزارش</a></li>
+										<li><a
+											ui-sref="invoice-register"
+											class="active btn btn-custom btn-custom-two btn-sm">ثبت</a></li>
+										<li><a
+											href="#"
+											class="active btn btn-custom btn-custom-two btn-sm">ویرایش</a></li>
+										<li><a
+											ui-sref="invoice-report-search"
+											class="active btn btn-custom btn-custom-two btn-sm">گزارش</a></li>
 									</ul>
 								</div>
 							</div>
 						</div>
-					</div>
-				</div>
-			</section>
-
-			<section id="maintenance">
-				<div class="container">
-					<div class="row text-center header">
-						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-							<h3>مدیریت خودرو</h3>
-							<hr />
-						</div>
-						<div class="row">
+						<div class="row text-center header">
 							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-								<div class="maintenance-wrapper">
-									<i class="ion-speedometer"></i>
-									<h3>مدیریت خودرو</h3>
+								<h3>مدیریت درآمد</h3>
+								<hr />
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<div class="accounts-wrapper">
+								<i class="ion-document"></i>
+								<h3>اطلاعات مربوط به بارنامه‌ها</h3>
+								<div class="text-center">
 									<ul class="list-inline">
-										<li>سرویس‌های دوره‌ای</li>
-										<li>قطعات مصرفی</li>
-										<li>تعمیر</li>
-										<li>کارواش</li>
+										<li><a
+											href="#"
+											class="active btn btn-custom btn-custom-two btn-sm">ثبت بارنامه</a></li>
+										<li><a
+											href="#"
+											class="active btn btn-custom btn-custom-two btn-sm">ویرایش بارنامه</a></li>
+										<li><a
+											href="#"
+											class="active btn btn-custom btn-custom-two btn-sm">گزارش</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="row text-center header">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<h3>مدیریت هزینه‌های راننده</h3>
+								<hr />
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<div class="accounts-wrapper">
+								<i class="ion-document"></i>
+								<h3>حقوق راننده</h3>
+								<div class="text-center">
+									<ul class="list-inline">
+										<li><a
+											href="#"
+											class="active btn btn-custom btn-custom-two btn-sm">ثبت واریزی</a></li>
+										<li><a
+											href="#"
+											class="active btn btn-custom btn-custom-two btn-sm">ویرایش ویرایش</a></li>
+										<li><a
+											href="#"
+											class="active btn btn-custom btn-custom-two btn-sm"> گزارش واریزی</a></li>
 									</ul>
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-			</section>
-			<section id="driver">
-				<div class="container">
-					<div class="row text-center header">
-						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-							<h3>مدیریت راننده</h3>
-							<hr />
-						</div>
-					</div>
-				</div>
-			</section>
-			<section id="earning">
-				<div class="container">
-					<div class="row text-center header">
-						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-
-							<h3>محاسبات درآمد</h3>
-							<hr />
-
-						</div>
-					</div>
-				</div>
-			</section>
-			<!--GRID SECTION END-->
-			<!--CONTACT SECTION START-->
-			<section id="about">
-				<div class="container">
-					<div class="row text-center header">
-						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-
-							<h3>درباره‌ی ما</h3>
-							<hr />
-
-						</div>
-					</div>
-
-					<div class="row">
-
-						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-							<p>{{about_us}}</p>
-						</div>
-					</div>
-
-				</div>
-
-
-			</section>
-			<!--CONTACT SECTION END-->
+				</section>
+			</div>
 		</div>
+		<section>
+			<div class="col-sm-6 col-md-6 col-lg-6">
+				<div>
+					<h4>آخرین واریزی‌های ثبت شده</h4>
+				</div>
+				<div ng-repeat="i in [1,2,3]">
+					<p>{{i}}</p>
+				</div>
+
+			</div>
+			<div class="col-sm-6 col-md-6 col-lg-6">
+				<h4>آخرین بارنامه‌های ثبت شده</h4>
+
+			</div>
+		</section>
+		<section id="about">
+			<div class="row text-center header">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+					<h3>درباره‌ی ما</h3>
+					<hr />
+					<div
+						class="row text-right"
+						ng-controller="CurrentUserController">
+						<p>وارد شده با نام کاربری {{username.username}}</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<p>{{about_us}}</p>
+				</div>
+			</div>
+
+
+
+		</section>
 	</div>
 </div>
