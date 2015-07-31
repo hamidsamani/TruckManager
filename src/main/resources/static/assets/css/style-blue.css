@@ -22,9 +22,22 @@ OVERRIDING STYLE
 }
 /*==============================================================
 ==============================================================*/
+.margin-bottom-10 {
+	margin-bottom: 10px;
+}
+
+.bg-yellow {
+	background-color: #EEED000;
+}
+
+.column-pad {
+	padding: 10px;
+	margin: 10px;
+}
+
 .invoice-row {
-	width: 30%;
-	margin: 0px auto;
+	/*width: 30%;*/
+	/*margin: 0px auto;*/
 	background-color: rgba(255, 255, 255, 0.07);
 	transition: all 0.5s ease-in-out 0s;
 	border-radius: 8px;
