@@ -20,6 +20,14 @@ public class InvoiceService {
 		this.invoiceRepository = invoiceRepository;
 	}
 
+	public Invoice findOne(String id) {
+		Invoice invoice = this.invoiceRepository.findOne(id);
+		if (null == invoice) {
+			throw new InvoiceNotFoundException(String.format("given invoice with id: %s not found.", id));
+		}
+		return invoice;
+	}
+
 	public List<Invoice> determineInvoiceReport(String id, String title, String detail) {
 		List<Invoice> searchResult = new ArrayList<>();
 		if (hasText(id)) {
@@ -27,9 +35,9 @@ public class InvoiceService {
 		} else if (hasText(title) && hasText(detail)) {
 			searchResult.addAll(invoiceRepository.findByTitleAndItemsTitle(title, detail));
 		} else if (hasText(title)) {
-			searchResult.addAll(invoiceRepository.findByTitle(title));
+			searchResult.addAll(invoiceRepository.findByTitleLike(title));
 		} else if (hasText(detail)) {
-			searchResult.addAll(invoiceRepository.findByItemsTitle(detail));
+			searchResult.addAll(invoiceRepository.findByItemsTitleLike(detail));
 		}
 		if (searchResult.isEmpty()) {
 			throw new InvoiceNotFoundException();

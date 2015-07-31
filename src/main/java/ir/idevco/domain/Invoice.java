@@ -1,10 +1,16 @@
 package ir.idevco.domain;
 
+import ir.idevco.infrastructure.converter.JacksonDateDeserialize;
+import ir.idevco.infrastructure.converter.JacksonDateSerializer;
+
 import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 @Document
 public class Invoice {
@@ -12,6 +18,8 @@ public class Invoice {
 	@Id
 	private String id;
 
+	@JsonSerialize(using = JacksonDateSerializer.class)
+	@JsonDeserialize(using = JacksonDateDeserialize.class)
 	private LocalDateTime date;
 
 	private String title;
@@ -23,6 +31,8 @@ public class Invoice {
 	private int milage;
 
 	private List<Item> items;
+
+	private PaymentType paymentType;
 
 	/**
 	 * @return the id
@@ -120,6 +130,20 @@ public class Invoice {
 	 */
 	public void setItems(List<Item> items) {
 		this.items = items;
+	}
+
+	/**
+	 * @return the paymentType
+	 */
+	public PaymentType getPaymentType() {
+		return paymentType;
+	}
+
+	/**
+	 * @param paymentType the paymentType to set
+	 */
+	public void setPaymentType(PaymentType paymentType) {
+		this.paymentType = paymentType;
 	}
 
 	/**
@@ -253,7 +277,7 @@ public class Invoice {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Invoice [id=").append(id).append(", date=").append(date).append(", title=").append(title)
 				.append(", tell=").append(tell).append(", address=").append(address).append(", milage=").append(milage)
-				.append(", items=").append(items).append("]");
+				.append(", items=").append(items).append(", paymentType=").append(paymentType).append("]");
 		return builder.toString();
 	}
 

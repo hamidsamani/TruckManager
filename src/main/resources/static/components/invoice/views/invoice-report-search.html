@@ -1,62 +1,99 @@
 <div id="home">
 	<div class="container">
-		<div class="col-md-12" ng-controller="InvoiceReportController">
-			<h1>جستجوی فاکتور</h1>
+		<div
+			class="col-md-12 text-right"
+			ng-controller="InvoiceReportController">
+			<h3>جستجوی فاکتور</h3>
 			<hr />
 
 			<div class="row">
-				<div class="col-md-3 center-block invoice-row" style="float: none;">
-					<form name="invoiceForm" ng-controller="InvoiceReportController">
+				<div class="col-md-6 col-md-offset-3 invoice-row">
+					<form name="invoiceForm">
+
 						<div class="form-group">
-							<label for="invoice-id">شماره فاکتور</label> <input id='invoice-id' type="text" class="form-control" tabindex="1"
+							<label for="invoice-id">شماره فاکتور</label>
+							<input
+								id='invoice-id'
+								type="text"
+								class="form-control"
+								tabindex="1"
 								ng-model="invoice.id">
 						</div>
 						<div class="form-group">
-							<label>تاریخ فاکتور</label><input type="text" class="form-control" tabindex="2" ng-model="invoice.data">
+							<label>تاریخ فاکتور</label>
+							<input
+								type="text"
+								class="form-control"
+								tabindex="2"
+								ng-model="invoice.date">
 						</div>
 						<div class="form-group">
-							<label>عنوان</label><input type="text" class="form-control" tabindex="3" ng-model="invoice.title">
+							<label>عنوان</label>
+							<input
+								type="text"
+								class="form-control"
+								tabindex="3"
+								ng-model="invoice.title">
 						</div>
-						<div class="form-group" data-tip="مثال: فیلتر روغن ، روغن ریتاردر">
-							<label>جزئیات</label><input type="text" class="form-control" tabindex="4" ng-model="invoice.detail">
+						<div
+							class="form-group"
+							data-tip="مثال: فیلتر روغن ، روغن ریتاردر">
+							<label>جزئیات</label>
+							<input
+								type="text"
+								class="form-control"
+								tabindex="4"
+								ng-model="invoice.detail">
 						</div>
 						<div class="form-group">
-							<input type="submit" class="btn btn-default btn-primary" tabindex="5" ng-click="search(invoice)" value="جستجو" />
-							<a ui-sref="home" class="btn btn-default btn-warning" tabindex="6">بازگشت</a>
+							<input
+								type="submit"
+								class="btn btn-default btn-primary"
+								tabindex="5"
+								ng-click="search(invoice)"
+								value="جستجو" />
+							<a
+								ui-sref="home"
+								class="btn btn-default btn-warning"
+								tabindex="6">بازگشت</a>
 						</div>
+
 					</form>
 				</div>
-			</div>
-			<hr />
-			<div class="row">
-				<h4>نتیجه‌ی جستجو</h4>
 				<div class="col-md-12">
-					<p>result {{test || array}}</p>
+					<hr />
+					<h3>نتیجه‌ی جستجو</h3>
 				</div>
-				<div class="col-md-3 invoice-row" ng-repeat="i in test">
-					<form>
-						<div class="form-group">
-							<label>شماره فاکتور</label>
-							<p>{{i.id}}</p>
-						</div>
-						<div class="form-group">
+				<div class="col-md-12">
+					<div
+						class="col-md-2 invoice-row column-pad"
+						ng-repeat="i in test">
+						<div>
 							<label>تاریخ</label>
-							<p>{{i.date}}</p>
+							<p>{{i.date | toShDate}}</p>
 						</div>
-						<div class="form-group">
+
+						<div>
+							<label>عنوان</label>
+							<p>{{i.title}}</p>
+						</div>
+						<div>
+							<label>کارکرد</label>
+							<p>{{i.milage}}</p>
+						</div>
+						<div>
 							<label>تعداد اقلام</label>
-							<p>2</p>
+							<p>{{i.items.length}}</p>
 						</div>
-						<div class="form-group">
-							<label>جمع مبلغ فاکتور</label>
-							<p>125000</p>
+						<div>
+							<a
+								class="btn btn-primary"
+								ui-sref="invoice-detail({id:i.id})">مشاهده فاکتور</a>
 						</div>
-						<div class="form-group">
-							<a class="btn btn-default btn-primary">جزئیات</a>
-						</div>
-					</form>
+					</div>
 				</div>
 			</div>
+
 		</div>
 	</div>
 </div>

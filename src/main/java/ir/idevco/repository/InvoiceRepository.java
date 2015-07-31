@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface InvoiceRepository extends MongoRepository<Invoice, String> {
 
-	List<Invoice> findByTitle(String title);
+	List<Invoice> findByTitleLike(String title);
 
-	List<Invoice> findByItemsTitle(String title);
+	List<Invoice> findByItemsTitleLike(String title);
 
 	List<Invoice> findByTitleAndItemsTitle(String title, String itemsTitle);
 }
