@@ -8,7 +8,7 @@
 
 								.state('home', {
 									url : '',
-									templateUrl : 'views/home.html',
+									templateUrl : 'views/home.html'
 								})
 
 								.state(
@@ -46,13 +46,22 @@
 										'invoice-register',
 										{
 											url : '/invoice/register',
-											templateUrl : 'components/invoice/views/invoice.html'
+											templateUrl : 'components/invoice/views/new-invoice.html'
 										})
 								.state(
 										'invoice-report-search',
 										{
 											url : '/invoice/report/search',
 											templateUrl : 'components/invoice/views/invoice-report-search.html'
-										});
+										})
+								.state(
+										'invoice-detail',
+										{
+											url : '/invoice/report/id/{id}',
+											templateUrl : 'components/invoice/views/invoice.html',
+											controller : function($scope,$stateParams) {
+												$scope.id = $stateParams.id
+											}
+										})
 					});
 })();
