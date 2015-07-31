@@ -1,27 +1,37 @@
 (function() {
 	'use strict'
 	angular.module('app.payment').controller('PaymentPayController',
-			[ 'Payments', '$state', '$scope', PaymentPayController ]);
+			[ 'Payments', '$scope', PaymentPayController ]);
 
-	function PaymentPayController(Payments, $state, $scope) {
-		$scope.submit = function(isValid) {
+	function PaymentPayController(Payments, scope) {
+		scope.submit = function(isValid) {
 			if (isValid) {
-				Payments.save($scope.payment);
-				$.growl.notice({
-					title : 'واریزی مبلغ',
-					message : JSON.stringify($scope.payment)
-				});
-				$scope.payment = {};
+				Payments.save(scope.payment, onSuccess);
+				scope.payment = {};
 			} else {
-				$.growl.error({
-					title : 'خطا',
-					message : 'خطاهای کنترلی را رفع کنید'
-				});
-				$scope.submitted = true;
+				validationHasError();
+				scope.submitted = true;
 			}
 		}
-		$scope.cancel = function() {
-			$state.go('home');
+		scope.today = function(date) {
+			date = "hamid";
 		}
+	}
+
+	function onSuccess(data, responseHeader) {
+		$.growl.notice({
+			title : 'ثبت واریزی',
+			message : 'واریزی مبلغ با شناسه' + data.id + 'با موفقیت انجام شد',
+			location : 'tc'
+		});
+	}
+
+	function validationHasError() {
+		$.growl.error({
+			title : 'خطا',
+			message : 'خطاهای کنترلی را رفع کنید',
+			location : 'tc',
+			size : 'large'
+		});
 	}
 })();

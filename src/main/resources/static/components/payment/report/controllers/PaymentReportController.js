@@ -5,7 +5,10 @@
 
 	function PaymentReportController(DTOptionsBuilder, DTColumnBuilder) {
 		var vm = this;
-		vm.dtOptions = DTOptionsBuilder.fromSource('/payments').withLanguage({
+		var request = "/payments?fromDate="
+				+ moment().subtract(1, 'days').format('YYYY-MM-DD h:m:s')
+				+ "&toDate=" + moment().format('YYYY-MM-DD h:m:s');
+		vm.dtOptions = DTOptionsBuilder.fromSource(request).withLanguage({
 			"sProcessing" : "درحال پردازش...",
 			"sLengthMenu" : "نمایش محتویات _MENU_",
 			"sZeroRecords" : "موردی یافت نشد",
@@ -49,7 +52,8 @@
 									return data;
 								}),
 				DTColumnBuilder.newColumn('amount').withTitle('مبلغ'),
-				DTColumnBuilder.newColumn('title').withTitle('عنوان').notSortable(),
+				DTColumnBuilder.newColumn('title').withTitle('عنوان')
+						.notSortable(),
 				DTColumnBuilder.newColumn('payer.name').withTitle(
 						'پرداخت کننده').notSortable(),
 				DTColumnBuilder.newColumn('recipient.name').withTitle('گیرنده')

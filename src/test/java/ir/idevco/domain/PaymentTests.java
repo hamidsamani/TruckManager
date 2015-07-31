@@ -23,4 +23,11 @@ public class PaymentTests {
 		assertThat(payment.getPayer(), is(PAYER));
 		assertThat(payment.getRecipient(), is(RECIPIENT));
 	}
+
+	@Test
+	public void paymentTypeSettedCorrectly() {
+		Payment payment = Payment.create().type(PaymentType.CASH).build();
+
+		assertThat(payment.getType(), is(PaymentType.CASH));
+	}
 }

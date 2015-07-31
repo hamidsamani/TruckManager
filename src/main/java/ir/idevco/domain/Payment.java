@@ -38,6 +38,8 @@ public class Payment implements Serializable {
 
 	private int amount;
 
+	private PaymentType type;
+
 	/**
 	 * 
 	 */
@@ -51,6 +53,7 @@ public class Payment implements Serializable {
 		this.recipient = paymentBuilder.recipient;
 		this.amount = paymentBuilder.amount;
 		this.date = paymentBuilder.date;
+		this.type = paymentBuilder.type;
 	}
 
 	/**
@@ -67,7 +70,7 @@ public class Payment implements Serializable {
 
 	@PersistenceConstructor
 	public Payment(String id, LocalDateTime createdDate, LocalDateTime date, String title, String description,
-			Person payer, Person recipient, int amount) {
+			Person payer, Person recipient, int amount, PaymentType type) {
 		this.id = id;
 		this.createdDate = createdDate;
 		this.date = date;
@@ -76,6 +79,7 @@ public class Payment implements Serializable {
 		this.payer = payer;
 		this.recipient = recipient;
 		this.amount = amount;
+		this.type = type;
 	}
 
 	/**
@@ -190,11 +194,25 @@ public class Payment implements Serializable {
 		this.amount = amount;
 	}
 
+	/**
+	 * @return the type
+	 */
+	public PaymentType getType() {
+		return type;
+	}
+
+	/**
+	 * @param type the type to set
+	 */
+	public void setType(PaymentType type) {
+		this.type = type;
+	}
+
 	public static PaymentBuilder create() {
 		return new PaymentBuilder();
 	}
 
-	static class PaymentBuilder {
+	public static class PaymentBuilder {
 		private LocalDateTime date;
 		private String title;
 		private String description;
@@ -203,6 +221,7 @@ public class Payment implements Serializable {
 		private Person recipient;
 
 		private int amount;
+		private PaymentType type;
 
 		public PaymentBuilder title(String title) {
 			this.title = title;
@@ -234,6 +253,11 @@ public class Payment implements Serializable {
 			return this;
 		}
 
+		public PaymentBuilder type(PaymentType type) {
+			this.type = type;
+			return this;
+		}
+
 		public Payment build() {
 			return new Payment(this);
 		}
@@ -248,7 +272,8 @@ public class Payment implements Serializable {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Payment [id=").append(id).append(", createdDate=").append(createdDate).append(", date=")
 				.append(date).append(", title=").append(title).append(", description=").append(description).append(", payer=")
-				.append(payer).append(", recipient=").append(recipient).append(", amount=").append(amount).append("]");
+				.append(payer).append(", recipient=").append(recipient).append(", amount=").append(amount).append(", type=")
+				.append(type).append("]");
 		return builder.toString();
 	}
 

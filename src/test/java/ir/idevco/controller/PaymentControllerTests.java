@@ -34,4 +34,10 @@ public class PaymentControllerTests extends ControllerTests {
 	public void paymentsRetrievedSuccessfully() throws Exception {
 		mockMVC.perform(get("/payments")).andExpect(status().isOk()).andDo(print());
 	}
+
+	@Test
+	public void paymentBetweenDateWorksAsExpected() throws Exception {
+		mockMVC.perform(get("/payments").param("fromDate", "2015-07-20 10:21:30").param("toDate", "2015-07-22T10:22:35"))
+				.andDo(print());
+	}
 }
